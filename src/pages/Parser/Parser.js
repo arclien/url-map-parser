@@ -72,12 +72,12 @@ const Parser = () => {
       .then((text) => {
         // 에스콰이어의 경우 "주소"로 구분되어있다
         const addressList = htmlStringMatchesQuery(text, '주소') || [];
-        console.log(addressList);
+        // console.log(addressList);
         const addressList2 = htmlStringMatchesWholeString(text) || [];
-        console.log(addressList2);
+        // console.log(addressList2);
 
         setParsedAddressList(new Set([...addressList, ...addressList2]));
-        console.log(new Set([...addressList, addressList2]));
+        // console.log(new Set([...addressList, addressList2]));
       });
   };
 
