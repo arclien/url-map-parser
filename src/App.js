@@ -12,13 +12,14 @@ import CommonRoute from 'routers/CommonRoute';
 
 import { AppBody } from './App.styles';
 
+const BASE_URL = '/url-map-parser';
 function App() {
   const { root, parser } = Routes;
 
   return (
     <ConfirmModalProvider>
       <GlobalHelmet />
-      <BrowserRouter>
+      <BrowserRouter basename={BASE_URL}>
         <AppBody>
           <GlobalTheme />
           <Switch>
