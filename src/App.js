@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
+import { GlobalTheme } from 'remember-ui';
+
+import Parser from 'pages/Parser/Parser';
+import { ConfirmModalProvider } from 'context/ConfirmModalContext';
+import GlobalConfirmModal from 'components/GlobalConfirmModal/GlobalConfirmModal';
+import GlobalHelmet from 'components/GlobalHelmet/GlobalHelmet';
+import Routes from 'routers/routes';
+import CommonRoute from 'routers/CommonRoute';
+// import Home from 'pages/Home/Home';
+
+import { AppBody } from './App.styles';
 
 function App() {
+  const { root, parser } = Routes;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfirmModalProvider>
+      <GlobalHelmet />
+      <BrowserRouter>
+        <AppBody>
+          <GlobalTheme />
+          <Switch>
+            <CommonRoute path={parser.path}>
+              <Parser />
+            </CommonRoute>
+            {/* <CommonRoute path={root.path}>
+              <Home />
+            </CommonRoute> */}
+            <Redirect to={parser.path} />
+          </Switch>
+        </AppBody>
+        <GlobalConfirmModal />
+      </BrowserRouter>
+    </ConfirmModalProvider>
   );
 }
 
