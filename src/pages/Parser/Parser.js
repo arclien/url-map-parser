@@ -30,8 +30,12 @@ const Parser = () => {
     if (!searchInput && !url) return;
     setParsedAddressList([]);
     setParsed(true);
-    const list = await parseUrl(searchInput || url);
-    setParsedAddressList(list);
+    try {
+      const list = await parseUrl(searchInput || url);
+      setParsedAddressList(list);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -107,6 +111,7 @@ const Parser = () => {
           <IframeContainer>
             <Title>웹 Iframe</Title>
             <iframe
+              id="myframe1"
               width="100%"
               height="100%"
               frameBorder="0"
