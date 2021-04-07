@@ -6,6 +6,8 @@ import {
   mobileOnly,
   NewBaseButton,
   white,
+  text,
+  gray80,
 } from 'remember-ui';
 
 export const Container = styled.div`
@@ -68,13 +70,68 @@ export const SearchButton = styled(NewBaseButton)`
 `;
 
 export const Body = styled.div`
-  padding-top: 50px;
+  padding-top: 20px;
 `;
 
-export const Example = styled.div`
+export const Title = styled.div`
+  ${font({ size: '16px', weight: 'bold', color: text })};
+
+  margin-bottom: 10px;
+`;
+
+export const Examples = styled.div`
+  ${flexContainer('space-between', 'center')};
+
   padding: 10px;
+  position: relative;
+`;
+
+export const ExampleList = styled.div`
+  padding: 10px;
+  width: 50%;
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid ${gray80};
+`;
+
+export const ExampleItem = styled.div`
+  ${font({ size: '14px', color: text })};
+
+  padding-bottom: 5px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Result = styled.div`
+  ${flexContainer('space-between', 'center')};
+
   padding: 10px;
+  position: relative;
+`;
+
+export const ResultList = styled.div`
+  padding: 10px;
+  width: 300px;
+  height: 700px;
+  overflow-y: scroll;
+  border: 1px solid ${gray80};
+`;
+
+export const ResultItem = styled.div`
+  ${font({ size: '14px', color: text })};
+
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const IframeContainer = styled.div`
+  padding: 10px;
+  width: calc(100% - 320px);
+  height: 700px;
+  overflow-y: scroll;
+  border: 1px solid ${gray80};
 `;
