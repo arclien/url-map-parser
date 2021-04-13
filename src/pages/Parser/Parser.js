@@ -36,7 +36,10 @@ const Parser = () => {
     try {
       const list = await parseUrl(searchInput || url);
       setParsedAddressList(list);
-    } catch (e) {}
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e);
+    }
   };
 
   return (
