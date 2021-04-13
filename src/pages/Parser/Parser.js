@@ -36,9 +36,7 @@ const Parser = () => {
     try {
       const list = await parseUrl(searchInput || url);
       setParsedAddressList(list);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   return (
