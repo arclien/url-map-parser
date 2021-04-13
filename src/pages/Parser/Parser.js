@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FacebookShareButton, FacebookShareCount } from 'react-share';
 
 import { parseUrl } from './Parser.utils';
-import MapView from 'components/MapView/MapView';
+// import MapView from 'components/MapView/MapView';
 
 import { UrlExamplesCors, UrlExamples } from './ParserExample.constant';
 
@@ -149,7 +149,7 @@ const Parser = () => {
             {[...parsedAddressList].map((el) => (
               <ResultItem key={el}>{el}</ResultItem>
             ))}
-            <MapView parsedAddressList={[...parsedAddressList]} />
+            {/* <MapView parsedAddressList={[...parsedAddressList]} /> */}
           </ResultList>
         </Result>
       </Body>
