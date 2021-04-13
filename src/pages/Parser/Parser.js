@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useState } from 'react';
+import { FacebookShareButton, FacebookShareCount } from 'react-share';
 
 import { parseUrl } from './Parser.utils';
+import MapView from 'components/MapView/MapView';
 
 import { UrlExamplesCors, UrlExamples } from './ParserExample.constant';
 
@@ -10,6 +12,7 @@ import {
   SearchInput,
   Buttons,
   Title,
+  Top,
   SearchButton,
   Body,
   Examples,
@@ -34,7 +37,7 @@ const Parser = () => {
       const list = await parseUrl(searchInput || url);
       setParsedAddressList(list);
     } catch (e) {
-      throw Error(e);
+      console.log(e);
     }
   };
 
@@ -78,6 +81,25 @@ const Parser = () => {
 
       <Body>
         <Examples>
+          <div className="Demo__some-network">
+            <FacebookShareButton
+              url="https://lostark.game.onstove.com/"
+              quote="로스트아크 이미지를 공유해요!"
+              className="Demo__some-network__share-button"
+            >
+              FacebookIcon
+            </FacebookShareButton>
+
+            <div>
+              <FacebookShareCount
+                url="https://lostark.game.onstove.com/"
+                className="Demo__some-network__share-count"
+              >
+                {(count) => count}
+              </FacebookShareCount>
+            </div>
+          </div>
+
           <ExampleList>
             <Title>파싱 가능 예제 클릭</Title>
             {UrlExamples.map((el) => (
@@ -109,9 +131,11 @@ const Parser = () => {
         </Examples>
         <Result>
           <IframeContainer>
-            <Title>웹 Iframe</Title>
+            <Top>
+              <Title>웹 Iframe</Title>
+            </Top>
             <iframe
-              id="myframe1"
+              title="iframe"
               width="100%"
               height="100%"
               frameBorder="0"
@@ -125,6 +149,7 @@ const Parser = () => {
             {[...parsedAddressList].map((el) => (
               <ResultItem key={el}>{el}</ResultItem>
             ))}
+            <MapView parsedAddressList={[...parsedAddressList]} />
           </ResultList>
         </Result>
       </Body>

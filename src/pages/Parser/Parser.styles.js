@@ -76,7 +76,7 @@ export const Body = styled.div`
 export const Title = styled.div`
   ${font({ size: '16px', weight: 'bold', color: text })};
 
-  margin-bottom: 10px;
+  padding: 0 10px 10px 0;
 `;
 
 export const Examples = styled.div`
@@ -113,7 +113,7 @@ export const Result = styled.div`
 
 export const ResultList = styled.div`
   padding: 10px;
-  width: 300px;
+  width: 1000px;
   height: 700px;
   overflow-y: scroll;
   border: 1px solid ${gray80};
@@ -130,8 +130,13 @@ export const ResultItem = styled.div`
 
 export const IframeContainer = styled.div`
   padding: 10px;
-  width: calc(100% - 320px);
+  width: calc(100% - 1020px);
   height: 700px;
   overflow-y: scroll;
   border: 1px solid ${gray80};
+  position: relative;
+`;
+
+export const Top = styled.div`
+  ${flexContainer('flex-start', 'center')};
 `;
